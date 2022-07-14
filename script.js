@@ -5,21 +5,9 @@ const scissorsButton = document.getElementById(`scissorsButton`);
 const battle = document.getElementById(`battle`);
 const results = document.getElementById(`results`);
 const score = document.getElementById(`score`);
-const playButton = document.getElementById(`playButton`)
 
 let playerScore = 0;
 let computerScore = 0;
-
-/*
-function game() {
-    for (let playerScore = 0, computerScore = 0; playerScore < 5 || computerScore < 5;)
-} */
-    
-
-// rockButton.addEventListener(`click`, function() {playRound(`rock`)});
-// paperButton.addEventListener(`click`, function() {playRound(`paper`)});
-// scissorsButton.addEventListener(`click`, function() {playRound(`scissors`)});
-
 
 function computerPlay() {
     const gameOptions = [`rock`, `paper`, `scissors`]
@@ -28,15 +16,13 @@ function computerPlay() {
 }
 
 function playRound(playerInput, computerInput) {
-    computerInput = computerPlay();
-    playerInput = prompt(`Please type in your weapon of choice: ROCK, PAPER or SCISSORS`).toLowerCase();
-
     battle.textContent = `You played ${playerInput} against the computer's ${computerInput}`;
     console.log(`You played ${playerInput} against the computer's ${computerInput}`);
 
     if (playerInput === computerInput) {
         console.log(`IT'S A DRAW`);
         results.textContent = `IT'S A DRAW`;
+        score.textContent = `You ${playerScore} X ${computerScore} Computer`;
     } else if (
         (playerInput === `rock` && computerInput === `scissors`) ||
         (playerInput === `paper` && computerInput === `rock`) ||
@@ -45,6 +31,7 @@ function playRound(playerInput, computerInput) {
             console.log(`YOU WIN`);
             results.textContent = `YOU WIN`;
             playerScore += 1;
+            score.textContent = `You ${playerScore} X ${computerScore} Computer`;
             
     } else if (
         (playerInput === `rock` && computerInput === `paper`) ||
@@ -54,11 +41,21 @@ function playRound(playerInput, computerInput) {
             console.log(`YOU LOSE`);
             results.textContent = `YOU LOSE`;
             computerScore += 1;
-    } else {
-            console.log(`You did not choose a valid option`);
+            score.textContent = `You ${playerScore} X ${computerScore} Computer`;
     }
 }
 
+rockButton.addEventListener(`click`, () => {
+    playRound(`rock`, computerPlay());
+});
+paperButton.addEventListener(`click`, () => {
+    playRound(`paper`, computerPlay());
+});
+scissorsButton.addEventListener(`click`, () => {
+    playRound(`scissors`, computerPlay());
+});
+
+/*
 function game() {
     do {
         playRound();
@@ -73,3 +70,4 @@ function game() {
 }
 
 console.log(game())
+*/
