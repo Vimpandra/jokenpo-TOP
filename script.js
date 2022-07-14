@@ -5,22 +5,39 @@ const scissorsButton = document.getElementById(`scissorsButton`);
 const battle = document.getElementById(`battle`);
 const results = document.getElementById(`results`);
 const score = document.getElementById(`score`);
+const finalResult = document.getElementById(`finalResult`);
+
+const gameWindow = document.getElementById(`gameWindow`);
+const startButton = document.getElementById(`startButton`);
+startButton.addEventListener(`click`, () => {
+    battle.textContent = `Get ready to face your destiny`;
+    results.textContent = `FIGHT!`;
+    gameWindow.classList.toggle(`hide`);
+    startButton.classList.add(`hide`);
+    finalResult.textContent = ``;
+    playerScore = 0;
+    computerScore = 0;
+    score.textContent = `You ${playerScore} X ${computerScore} Computer`;
+});
+
+rockButton.addEventListener(`click`, () => playRound(`rock`, computerPlay()));
+paperButton.addEventListener(`click`, () => playRound(`paper`, computerPlay()));
+scissorsButton.addEventListener(`click`, () => playRound(`scissors`, computerPlay()));
 
 let playerScore = 0;
 let computerScore = 0;
+
 
 function computerPlay() {
     const gameOptions = [`rock`, `paper`, `scissors`]
     const random = Math.floor(Math.random() * gameOptions.length);
     return gameOptions[random];
-}
+};
 
 function playRound(playerInput, computerInput) {
-    battle.textContent = `You played ${playerInput} against the computer's ${computerInput}`;
-    console.log(`You played ${playerInput} against the computer's ${computerInput}`);
+    battle.innerHTML = `You played <strong>${playerInput}</strong> against the computer's <strong>${computerInput}</strong>`;
 
     if (playerInput === computerInput) {
-        console.log(`IT'S A DRAW`);
         results.textContent = `IT'S A DRAW`;
         score.textContent = `You ${playerScore} X ${computerScore} Computer`;
     } else if (
@@ -28,46 +45,31 @@ function playRound(playerInput, computerInput) {
         (playerInput === `paper` && computerInput === `rock`) ||
         (playerInput === `scissors` && computerInput === `paper`)
         ) {
-            console.log(`YOU WIN`);
             results.textContent = `YOU WIN`;
-            playerScore += 1;
+            playerScore += 1;            
             score.textContent = `You ${playerScore} X ${computerScore} Computer`;
-            
     } else if (
         (playerInput === `rock` && computerInput === `paper`) ||
         (playerInput === `paper` && computerInput === `scissors`) ||
         (playerInput === `scissors` && computerInput === `rock`)
         ) {
-            console.log(`YOU LOSE`);
             results.textContent = `YOU LOSE`;
             computerScore += 1;
             score.textContent = `You ${playerScore} X ${computerScore} Computer`;
     }
+    checkWinner();
+};
+
+function checkWinner() {
+    if (playerScore === 5) {
+        gameWindow.classList.add(`hide`);
+        startButton.textContent = `Play again`;
+        startButton.classList.remove(`hide`);
+        finalResult.textContent = `Congratulations! You are a Jokenpo CHAMPION!`;
+    } else if (computerScore === 5) {
+        gameWindow.classList.add(`hide`);
+        startButton.textContent = `Play again`;
+        startButton.classList.remove(`hide`);
+        finalResult.textContent = `Too bad! You lost against the computer.`
+    } else return;
 }
-
-rockButton.addEventListener(`click`, () => {
-    playRound(`rock`, computerPlay());
-});
-paperButton.addEventListener(`click`, () => {
-    playRound(`paper`, computerPlay());
-});
-scissorsButton.addEventListener(`click`, () => {
-    playRound(`scissors`, computerPlay());
-});
-
-/*
-function game() {
-    do {
-        playRound();
-        console.log(`You ${playerScore} X ${computerScore} Computer`);
-    } while (playerScore < 5 && computerScore < 5)
-    
-    if (playerScore > computerScore) {
-        console.log(`Congratulations! You won the game.`);
-    } else {
-        console.log(`Too bad! You lost against the computer.`)
-    }
-}
-
-console.log(game())
-*/

@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOKENPO!</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <h1>Jokenpo Olympics</h1>
     <p>First to five points wins</p>
 
-    <button type="button" id="startGame">Click to start the game</button>
+    <h1 id="finalResult"></h1>
 
-    <div id="gameON" class="">
+    <button type="button" id="startButton">Click to start the game</button>
+
+    <div id="gameWindow" class="hide">
         <h2>Choose your weapon:</h2>
         <button type="button" id="rockButton" class="">ROCK</button>
         <button type="button" id="paperButton" class="">PAPER</button>
@@ -24,7 +27,5 @@
         
         <h2 id="score">You 0 X 0 Computer</h2>
     </div>
-    
 </body>
-<script src="./script.js"></script>
 </html>
