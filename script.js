@@ -6,6 +6,7 @@ const battle = document.getElementById(`battle`);
 const results = document.getElementById(`results`);
 const score = document.getElementById(`score`);
 const finalResult = document.getElementById(`finalResult`);
+const finalMessage = document.getElementById(`finalMessage`);
 
 const gameWindow = document.getElementById(`gameWindow`);
 const startButton = document.getElementById(`startButton`);
@@ -15,6 +16,7 @@ startButton.addEventListener(`click`, () => {
     gameWindow.classList.toggle(`hide`);
     startButton.classList.add(`hide`);
     finalResult.textContent = ``;
+    finalMessage.textContent = ``;
     playerScore = 0;
     computerScore = 0;
     score.textContent = `You ${playerScore} X ${computerScore} Computer`;
@@ -65,11 +67,13 @@ function checkWinner() {
         gameWindow.classList.add(`hide`);
         startButton.textContent = `Play again`;
         startButton.classList.remove(`hide`);
-        finalResult.textContent = `Congratulations! You are a Jokenpo CHAMPION!`;
+        finalResult.textContent = `Congratulations!`;
+        finalMessage.textContent = `You are a Jokenpo CHAMPION!`;
     } else if (computerScore === 5) {
         gameWindow.classList.add(`hide`);
         startButton.textContent = `Play again`;
         startButton.classList.remove(`hide`);
-        finalResult.textContent = `Too bad! You lost against the computer.`
+        finalResult.textContent = `Too bad!`;
+        finalMessage.textContent = `You lost against the computer.`;
     } else return;
 }

@@ -1,3 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainTitle {
+    margin: 1em;
+}
+
+.rules {
+    margin-bottom: 2em;
+}
+
+.gameWindow {
+    background-color: #333;
+    padding: 2em;
+    border-radius: 0.4em;
+    width: 24em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6em;
+}
+
+.playOptions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6em;
+    align-items: center;
+    justify-content: center;
+}
+
+.optButton {
+    background-color: black;
+    color: white;
+    border: 0.15em solid white;
+    font-size: 1em;
+    padding: 0.4em;
+    cursor: pointer;
+    border-radius: 0.4em;
+    line-height: 1.6em;
+}
+
+.optButton:hover {
+    background-color: white;
+    color: black;
+}
+
+#finalResult {
+    margin-bottom: 0.4em;
+}
+
+#finalMessage {
+    margin-bottom: 1.6em;
+}
+
 .hide {
     display: none;
 }

@@ -9,18 +9,22 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h1>Jokenpo Olympics</h1>
-    <p>First to five points wins</p>
+    <h1 class="mainTitle">Jokenpo Olympics</h1>
+    <p class="rules">First to five points wins</p>
 
     <h1 id="finalResult"></h1>
+    <h4 id="finalMessage"></h4>
 
-    <button type="button" id="startButton">Click to start the game</button>
+    <button type="button" id="startButton" class="optButton">Click to start the game</button>
 
-    <div id="gameWindow" class="hide">
-        <h2>Choose your weapon:</h2>
-        <button type="button" id="rockButton" class="">ROCK</button>
-        <button type="button" id="paperButton" class="">PAPER</button>
-        <button type="button" id="scissorsButton" class="">SCISSORS</button>
+    <div id="gameWindow" class="hide gameWindow">
+        <h1>Choose your weapon:</h2>
+
+        <div class="playOptions">
+            <button type="button" id="rockButton" class="optButton">&#9996;<br>ROCK</button>
+            <button type="button" id="paperButton" class="optButton">&#128400;<br>PAPER</button>
+            <button type="button" id="scissorsButton" class="optButton">&#9996;<br>SCISSORS</button>
+        </div>
         
         <p id="battle"></p>
         <p id="results"></p>
