@@ -27,7 +27,7 @@ body {
     background-color: #333;
     padding: 2em;
     border-radius: 0.4em;
-    width: 24em;
+    min-width: 24em;
     display: flex;
     flex-direction: column;
     gap: 1.6em;
@@ -35,7 +35,7 @@ body {
 
 .playOptions {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.6em;
     align-items: center;
     justify-content: center;
@@ -50,6 +50,7 @@ body {
     cursor: pointer;
     border-radius: 0.4em;
     line-height: 1.6em;
+    min-width: 9em;
 }
 
 .optButton:hover {
