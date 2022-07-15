@@ -24,7 +24,7 @@ body {
 }
 
 .gameWindow {
-    background-color: #333;
+    background-color: #2f373e;
     padding: 2em;
     border-radius: 0.4em;
     min-width: 24em;
@@ -44,7 +44,7 @@ body {
 .optButton {
     background-color: black;
     color: white;
-    border: 0.15em solid white;
+    border: none;
     font-size: 1em;
     padding: 0.4em;
     cursor: pointer;
@@ -53,10 +53,6 @@ body {
     min-width: 9em;
 }
 
-.optButton:hover {
-    background-color: white;
-    color: black;
-}
 
 #finalResult {
     margin-bottom: 0.4em;
@@ -68,4 +64,14 @@ body {
 
 .hide {
     display: none;
+}
+
+#startButton {
+    background-color: #2f373e;
+}
+
+.optButton:hover,
+#startButton:hover {
+    background-color: white;
+    color: black;
 }
