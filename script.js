@@ -69,6 +69,7 @@ function checkWinner() {
         startButton.classList.remove(`hide`);
         finalResult.textContent = `Congratulations!`;
         finalMessage.textContent = `You are a Jokenpo CHAMPION!`;
+        confetti();
     } else if (computerScore === 5) {
         gameWindow.classList.add(`hide`);
         startButton.textContent = `Play again`;
